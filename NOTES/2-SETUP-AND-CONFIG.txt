@@ -1,0 +1,92 @@
+ 
+
+
+
+
+
+
+
+ AGORA FAREMOS O SETUP DE ESSE WEBSITE...
+
+
+
+
+
+ PEGAMOS AS IMAGES E CÓDIGOS DO TAILWIND.CONFIG.JS...
+
+
+
+
+
+
+ ALGUMAS COLORS E FONT FAMILIES ESPECÍFICAS:
+
+
+
+
+
+
+
+
+ /** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['*'],
+  theme: {
+    screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px',
+    },
+    extend: {
+      colors: {
+        softBlue: 'hsl(231, 69%, 60%)',
+        softRed: 'hsl(0, 94%, 66%)',
+        grayishBlue: 'hsl(229, 8%, 60%)',
+        veryDarkBlue: 'hsl(229, 31%, 21%)',
+      },
+      fontFamily: {
+        sans: ['Rubik', 'sans-serif'],
+      },
+      backgroundImage: (theme) => ({
+        'logo-dark-mode': 'url(/images/logo-dark-mode.svg)', // * Will be used as 'bg-logo-dark-mode'
+        'logo-light-mode': 'url(/images/logo-light-mode.svg)', // * Will be used as 'bg-logo-light-mode'
+        'curvy-dark-mode': 'url(/images/bg-curvy-dark-mode.svg)', // * Will be used as 'bg-curvy-dark-mode'
+        'curvy-light-mode': 'url(/images/bg-curvy-light-mode.svg)', // * Will be used as 'bg-curvylight-mode'
+      }),
+    },
+  },
+  plugins: [],
+};
+
+
+
+
+
+
+
+
+
+
+
+
+CERTO... AÍ PEGAMOS O LINK DA FONT, COLOCAMOS NO HEAD...
+
+
+
+
+
+
+
+
+
+
+
+
+NO PRÓXIMO VIDEO, VEREMOS O HEADER/NAVBAR...
+
+
+
+
+
+

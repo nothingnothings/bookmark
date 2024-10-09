@@ -1,0 +1,367 @@
+
+
+
+
+
+
+OK... AGORA FAREMOS A PARTE DO JAVASCRIPT, TUDO PARA QUE 
+
+
+O PANEL CORRETO/ADEQUADO SEJA MOSTRADO, SEMPRE QUE CLICARMOS EM 1 DAS TABS..
+
+
+
+
+
+
+
+
+
+
+
+-> MAS ANTES DE MAIS NADA, PRECISAMOS MUDAR UMA COISA NO HTML...
+
+
+
+-> SE VISUALIZAMOS AS TABS,
+
+PERCEBEMOS QUE CADA TAB TEM 1 DATA-TARGET:
+
+
+
+
+
+
+        <!-- Tab 1 ('tab' custom class) -->
+          <div
+            data-target="tab-1"
+            class="tab flex justify-center text-center text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3"
+          >
+            <div class="py-5" data-target="panel-2">Simple Bookmarking</div>
+          </div>
+
+
+
+
+
+
+
+--> 
+
+
+OUTRO 
+
+
+E OUTRO:
+
+
+
+
+
+      <!-- Tab 1 ('tab' custom class) -->
+          <div
+            data-target="tab-1"
+            class="tab flex justify-center text-center text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3"
+          >
+            <div class="py-5" data-target="panel-1">Simple Bookmarking</div>
+          </div>
+          <!-- Tab 2 ('tab' custom class) -->
+          <div
+            data-target="tab-2"
+            class="tab flex justify-center text-center text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3"
+          >
+            <div class="py-5" data-target="panel-2">Speedy Searching</div>
+          </div>
+          <!-- Tab 3 ('tab' custom class) -->
+          <div
+            data-target="tab-3"
+            class="tab flex justify-center text-center text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3"
+          >
+            <div class="py-5 border-b-4 border-softRed" data-target="panel-3">
+              Easy Sharing
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    --> CERTO...
+
+
+
+
+
+
+--> O PRIMEIRO PANEL TEM 1 CLASS DE 'panel-1'...
+
+
+
+
+
+
+
+--> o resto dos panels tem 'panel-2',
+
+
+
+e 'panel-3'...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DEPOIS DISSO, CRIAMOS O ARQUIVO JAVASCRIPT...
+
+
+script.js...
+
+
+
+
+
+
+
+
+
+
+
+NO JAVASCRIPT, PRECISAMOS:
+
+
+
+
+
+
+
+
+-- PEGAR TODAS AS TABS, E TODOS OS PANELS... 3 TABS, 3 PANELS...
+
+
+
+
+
+
+
+
+EX:
+
+
+
+
+
+
+
+const tabs = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('.panel');
+
+
+
+
+
+
+
+
+
+
+
+-> ISSO VAI NOS DAR TODOS OS ELEMENTOS COM ESSAS CLASSES...
+
+
+
+
+
+
+
+
+
+-> TUDO ISSO É COLOCADO EM 1 NODE LIST (que é tipo um array)...
+
+
+
+
+  
+
+
+AÍ BASTA COLOCARMOS 1 EVENT LISTENER EM CADA 1 DESSES ELEMENTOS (com for each, ou um for of loop)..
+
+
+
+
+
+TIPO ASSIM:
+
+
+
+
+// Tabs menu event listener
+tabs.forEach((tab) => {
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NO FINAL, O CÓDIGO FICA TIPO ASSIM:
+
+
+
+
+
+
+
+
+
+
+const tabs = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('.panel');
+
+// Tabs menu event listener
+tabs.forEach((tab) => {
+  tab.addEventListener('click', onTabClick);
+});
+
+function onTabClick(e) {
+  e.preventDefault();
+
+  // Deactivate all tabs
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', (e) => {
+      tab.children[0].classList.remove(
+        'border-softRed',
+        'border-b-4',
+        'md:border-b-0'
+      );
+    });
+  });
+
+  // Hide all panels
+  panels.forEach((panel) => {
+    panel.classList.add('hidden');
+  });
+
+  // Activate the clicked tab (makes it get shown)
+  const target = e.target.dataset.target;
+  document.querySelector(`.${target}`).classList.remove('hidden');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MAS AINDA NÃO ACABAMOS... O STYLING 
+
+
+DA BORDER AINDA ESTÁ ESTRAGADO (não está aparecendo em cima do elemento que deve ser marcado)...
+
+
+
+
+
+
+
+--> É POR ISSO QUE DEVEMOS ESCREVER ASSIM:
+
+
+
+
+
+
+
+
+
+const tabs = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('.panel');
+
+// Tabs menu event listener
+tabs.forEach((tab) => {
+  tab.addEventListener('click', onTabClick);
+});
+
+function onTabClick(e) {
+  // Deactivate all tabs
+  tabs.forEach((tab) => {
+    tab.children[0].classList.remove(
+      'border-softRed',
+      'border-b-4',
+      'md:border-b-0'
+    );
+  });
+
+  // Hide all panels
+  panels.forEach((panel) => {
+    panel.classList.add('hidden');
+  });
+
+  // Activate a new tab and panel based on the target
+  e.target.classList.add('border-softRed', 'border-b-4');
+  const classString = e.target.getAttribute('data-target');
+  document
+    .getElementById('panels')
+    .getElementsByClassName(classString)[0]
+    .classList.remove('hidden');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+e isso realmente funciona...
+
+
+
+

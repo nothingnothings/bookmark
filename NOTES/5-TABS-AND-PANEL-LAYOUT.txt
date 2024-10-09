@@ -1,0 +1,1340 @@
+
+
+
+
+
+
+
+
+
+REALIZAMOS UMA BREVE ALTERAÇÃO...
+
+
+
+
+NOSSO CÓDIGO CSS QUE ADAPTA O BACKGROUND DA SECTION DE HERO 
+
+ESTAVA ASSIM:
+
+
+
+
+
+
+/* CUSTOM CSS CLASSES */
+/* Only shows on large screens */
+@media (min-width: 1020px) {
+  .bg-hero {
+    width: 2000px;
+    height: 300px;
+    left: 30%;
+    @apply absolute rounded-l-full top-52 bg-softBlue;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--> MAS COMO JÁ TÍNHAMOS DEFINIDO UM VALUE PARA 'lg',
+    NESTE TRECHO AQUI:
+
+
+
+
+        screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px',
+    },
+
+
+
+
+
+
+
+
+--> PODEMOS SIMPLESMENTE USAR A FUNCTION DE screen() com um value 
+de 'lg',
+
+
+para então obtermos o mesmo resultado, mas de forma mais dinâmica (se alguma hora 
+mudarmos o value de 'lg', o breakpoint, isso automaticamente será aplicado a esse breakpoint)...
+
+
+
+
+
+
+
+EX:
+
+
+
+
+
+
+
+
+
+
+
+/* CUSTOM CSS CLASSES */
+/* Only shows on large screens */
+@media screen(lg) {
+  .bg-hero {
+    width: 2000px;
+    height: 300px;
+    left: 30%;
+    @apply absolute rounded-l-full top-52 bg-softBlue;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+CERTO...
+
+
+
+
+
+
+
+
+
+AÍ VOLTAMOS AO INDEX.HTML,
+
+E AÍ 
+
+CRIAMOS UMA NOVA SECTION, 
+
+
+PARA O 'FEATURES HEADER/HEADING'...
+
+
+
+
+
+
+
+
+
+
+EX:
+
+
+
+
+
+
+    <!-- Features Heading -->
+    <section id="features">
+      <div class="container mx-auto mt-16 px-6">
+        <h2 class="mb-6 text-4xl font-semibold text-center">Features</h2>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+DEPOIS DISSO, CRIAMOS UM PARAGRAPH...
+
+
+
+
+
+
+
+
+
+TIPO ASSIM:
+
+
+
+
+
+
+
+    <!-- Features Heading Section-->
+    <section id="features">
+      <div class="container mx-auto mt-16 px-6">
+        <h2 class="mb-6 text-4xl font-semibold text-center">Features</h2>
+        <p class="max-w-md mx-auto text-center text-grayishBlue">
+          Our aim is to make it quick and easy for you to access your favorite
+          websites. Your bookmarks sync between your devices so you can access
+          them on the go.</p>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+DEPOIS DISSO, CRIAMOS UMA SECTION PARA 
+
+
+AS FEATURES TABS...
+
+
+
+TEREMOS ALGUMAS CLASSES CUSTOM PARA ESSAS FEATURE TABS...
+
+
+
+
+
+
+EX:
+
+
+
+
+
+
+    <!-- Features Tabs Section -->
+    <section id="tabs">
+      <div class="container relative mx-auto my-6 mb-32 mt-12 px-6">
+        
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+E TEREMOS 1 BACKGROUND 
+NA AREA DE TABS TAMBÉM,
+
+
+POR ISSO VAMOS ADICIONAR 1 CLASS PARA ISSO,
+
+
+LÁ NO STYLE.CSS...
+
+
+
+
+
+
+
+
+
+
+ESCREVEMOS ASSIM:
+
+
+
+
+
+    <!-- Features Tabs Section -->
+    <section id="tabs">
+      <div class="container relative mx-auto my-6 mb-32 mt-12 px-6">
+        <div class="bg-tabs"></div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+ESSA CLASS DE 'bg-tabs' será custom...
+
+
+
+
+
+
+TIPO ASSIM:
+
+
+
+
+
+
+
+/* Only shows on large screens */
+@media screen(lg) {
+  .bg-hero {
+    width: 2000px;
+    height: 300px;
+    left: 30%;
+    @apply absolute rounded-l-full top-52 bg-softBlue;
+  }
+
+  .bg-tabs {
+    width: 2000px;
+    height: 300px;
+    right: 60%;
+    @apply absolute rounded-r-full top-60 bg-softBlue;
+  }
+}
+
+
+
+
+
+
+
+
+É PRATICAMENTE O MESMO BACKGROUND DO 'hero',
+
+mas 
+
+
+
+no lado oposto...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A PRÓXIMA COISA QUE QUEREMOS FAZER, DEPOIS DE 'bg-tabs',
+
+
+é 
+
+
+CRIAR 1 FLEX CONTAINER PARA AS ACTUAL TABS...
+
+
+
+
+
+
+serão 3 tabs, e teremos 1 col em smaller screens, e uma row em bigger screens...
+
+
+
+
+
+
+TIPO ASSIM:
+
+
+
+
+
+
+
+
+    <!-- Features Tabs Section -->
+    <section id="tabs">
+      <div class="container relative mx-auto my-6 mb-32 mt-12 px-6">
+        <!-- Tabs Background -->
+        <div class="bg-tabs"></div>
+        <!-- Tabs Flex Container -->
+        <div
+          class="flex flex-col justify-center max-w-xl mx-auto mb-6 border-b md:flex-row md:space-x-10"
+        ></div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+AÍ AGORA FAREMOS OS INDIVIDUAL ITEMS... AS ACTUAL TABS...
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ADICIONAMOS TAMBÉM UMA CLASS DE 'tab', em cada 1 das individual tabs:
+
+
+
+
+
+
+
+
+
+          <!-- Tab 1 ('tab' custom class) -->
+          <div
+            class="tab flex justify-center text-center text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3"
+          ></div>
+
+
+
+
+
+
+
+
+
+
+
+
+    DENTRO DISSO, TEREMOS 1 DIV QUE VAI WRAPPAR O TEXT...
+
+
+
+
+
+
+
+    EX:
+
+
+
+
+
+
+
+
+
+              <!-- Tab 1 ('tab' custom class) -->
+          <div
+            class="tab flex justify-center text-center text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3"
+          >
+            <div class="py-5 border-b-4 border-softRed" data-target="panel-1"></div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+-> TEMOS ESSE ATTRIBUTE DE 'data-target',
+
+que será usado  
+
+
+PARA 'KNOW WHICH PANEL TO LOAD, WHEN WE CLICK ON A TAB...'
+
+
+
+(para que a funcionalidade de 'show each panel' funcione, quando clicamos em cada tab)...
+
+
+
+
+
+--> ADICIONAMOS O data-target também na container/wrapper div de essa tab 1, também:
+
+
+
+
+
+       <!-- Tab 1 ('tab' custom class) -->
+          <div
+            data-target="tab-1"
+            class="tab flex justify-center text-center text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3"
+          >
+            <div
+              class="py-5 border-b-4 border-softRed"
+              data-target="panel-1"
+            >Simple Bookmarking</div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+CERTO...
+
+
+
+
+
+
+
+
+
+AÍ COPIAMOS O TAB 1, DUAS VEZES...
+
+
+
+
+
+
+
+
+
+
+
+EX:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Features Tabs Section -->
+    <section id="tabs">
+      <div class="container relative mx-auto my-6 mb-32 mt-12 px-6">
+        <!-- Tabs Background -->
+        <div class="bg-tabs"></div>
+        <!-- Tabs Flex Container -->
+        <div
+          class="flex flex-col justify-center max-w-xl mx-auto mb-6 border-b md:flex-row md:space-x-10"
+        >
+          <!-- Tab 1 ('tab' custom class) -->
+          <div
+            data-target="tab-1"
+            class="tab flex justify-center text-center text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3"
+          >
+            <div class="py-5" data-target="panel-2">Simple Bookmarking</div>
+          </div>
+          <!-- Tab 2 ('tab' custom class) -->
+          <div
+            data-target="tab-1"
+            class="tab flex justify-center text-center text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3"
+          >
+            <div class="py-5" data-target="panel-3">Speedy Searching</div>
+          </div>
+          <!-- Tab 3 ('tab' custom class) -->
+          <div
+            data-target="tab-1"
+            class="tab flex justify-center text-center text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3"
+          >
+            <div class="py-5 border-b-4 border-softRed" data-target="panel-1">
+              Easy Sharing
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CERTO...
+
+
+
+
+
+
+
+
+
+COM O NOSSO JAVASCRIPT, TEREMOS DE ADICIONAR A CLASS DA 'BORDER'
+
+PARA 
+
+
+A TAB QUE ESTIVER ACTIVE, DAS 3 TABS...
+
+
+
+
+
+
+
+
+
+
+CERTO... AGORA PRECISAMOS FAZER OS PANELS EM SI...
+
+
+
+
+
+
+
+
+
+--> APENAS 1 PANEL SERÁ MOSTRADO POR VEZ... MAS PRECISAMOS 
+ESCREVER OS 3 PANELS, É CLARO...
+
+
+
+
+
+
+
+
+
+
+-> Ok... aí vamos até onde temos o tabs panel,
+o flex container,
+
+
+e aí 
+
+
+CRIAMOS A SECTION DE 'TAB PANELS', logo abaixo..
+
+
+
+TIPO ASSIM:
+
+
+
+
+
+
+
+
+
+
+       <!-- Tab Panels Section -->
+        <section id="panels" class="container mx-auto">
+          <!-- Panel 1 -->
+          <div
+            class="panel panel-1 flex flex-col py-5 md:flex-row md:space-x-7"
+          ></div>
+        </section>
+
+
+
+
+
+
+
+
+
+'panel' e 'panel-1'
+
+serão CUSTOM CSS CLASSES,
+
+
+
+
+USADAS PARA _ 'SABER EXATAMENTE QUAL É ESSE PANEL' (pq os 3 panels devem ter classes diferentes...
+pq esse aqui deve ter o mesmo data-target da primeira tab, que é 'panel-1', também...)
+
+
+
+
+
+
+
+
+-> VAMOS CRIAR ESSA FUNCIONALIDADE, DE SWITCH BETWEEN PANELS,
+
+LÁ NO JAVASCRIPT....
+
+
+
+
+-> AÍ ADICIONAMOS A IMAGE DO PANEL, TIPO ASSIM:
+
+
+
+
+
+
+       <!-- Panel 1 -->
+          <div
+            class="panel panel-1 flex flex-col py-5 md:flex-row md:space-x-7"
+          >
+            <!-- Panel Images -->
+            <div class="flex justify-center md:w-1/2">
+              <img
+                src="images/illustration-features-tab-1.svg"
+                alt=""
+                class="relative z-10"
+              />
+            </div>
+            <!-- Panel Content -->
+            <div class="flex flex-col space-y-8 md:w-1/2">
+              <h3
+                class="mt-32 text-3xl font-semibold text-center md:mt-0 md:text-left"
+              >
+                Bookmark in one click.
+              </h3>
+              <p class="max-w-md text-center text-grayishBlue md:text-left">
+                Organize your bookmarks however you like. Our simple
+                drag-and-drop interface gives you complete control over how you
+                manage your favorite sites
+              </p>
+              <div class="mx-auto md:mx-0">
+                <a
+                  href="#"
+                  class="px-6 py-3 mt-4 font-semibold text-white border-2 border-white rounded-lg md:inline-flex bg-softBlue hover:bg-white hover:text-softBlue hover:border-softBlue hover:border-2"
+                  >More Info</a
+                >
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+já adicionamos o button, também...
+
+
+
+COPIAMOS E COLAMOS O PANEL 1 2X...
+
+
+
+
+
+
+
+EX:
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="./script.js" defer></script>
+  </head>
+  <!-- Fix scrollbar being created due to the image size -->
+  <body class="overflow-x-hidden">
+    <!-- Header -->
+    <nav class="container relative mx-auto p-6">
+      <!-- Flex Container for Nav Items -->
+      <div class="flex items-center justify-between space-x-20 my-6">
+        <!-- Logo -->
+        <div class="z-30">
+          <img src="images/logo-bookmark.svg" alt="" id="logo" />
+        </div>
+        <!-- Menu Items -->
+        <div
+          class="hidden items-center space-x-10 uppercase text-grayishBlue md:flex"
+        >
+          <a href="#features" class="tracking-widest hover:text-softRed"
+            >Features</a
+          >
+          <a href="#download" class="tracking-widest hover:text-softRed"
+            >Download</a
+          >
+          <a href="#faq" class="tracking-widest hover:text-softRed">FAQ</a>
+          <a
+            href="#"
+            class="px-8 py-2 text-white border-2 rounded-lg shadow-md bg-softRed border-softRed hover:text-softRed hover:bg-white"
+            >Login</a
+          >
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section id="hero">
+      <!-- Container For Image & Content -->
+      <div
+        class="container flex flex-col-reverse mx-auto p-6 lg:flex-row lg:mb-0"
+      >
+        <!-- Content -->
+        <div class="flex flex-col space-y-10 lg:mt-16 lg:w-1/2">
+          <h1
+            class="text-3xl font-semibold text-center lg:text-6xl lg:text-left"
+          >
+            A Simple Bookmark Manager
+          </h1>
+          <p
+            class="max-w-md mx-auto text-lg text-center text-gray-400 lg:text-2xl lg:text-left lg:mt-0 lg:mx-0"
+          >
+            A clean and simple interface to organize your favourite websites.
+            Open a new browser tab and see your sites load instantly. Try it for
+            free.
+          </p>
+
+          <!-- Buttons Container -->
+          <div
+            class="flex items-center justify-center w-full space-x-4 lg:justify-start"
+          >
+            <a
+              href="#"
+              class="p-4 text-sm font-semibold text-white bg-softBlue rounded shadow-md border-2 border-softBlue md:text-base hover:bg-white hover:text-softBlue"
+              >Get It On Chrome</a
+            >
+            <a
+              href="#"
+              class="p-4 text-sm font-semibold text-black bg-gray-300 rounded shadow-md border-2 border-gray-300 md:text-base hover:bg-white hover:text-gray-600"
+              >Get It On Firefox</a
+            >
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="relative mx-auto lg:mx-0 lg:mb-0 lg:w-1/2">
+          <div class="bg-hero"></div>
+          <img
+            src="images/illustration-hero.svg"
+            alt=""
+            class="relative z-10 lg:top-24 xl:top-0 oveflow-x-visible"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Heading Section-->
+    <section id="features">
+      <div class="container mx-auto mt-16 px-6">
+        <h2 class="mb-6 text-4xl font-semibold text-center">Features</h2>
+        <p class="max-w-md mx-auto text-center text-grayishBlue">
+          Our aim is to make it quick and easy for you to access your favorite
+          websites. Your bookmarks sync between your devices so you can access
+          them on the go.
+        </p>
+      </div>
+    </section>
+    <!-- Features Tabs Section -->
+    <section id="tabs">
+      <div class="container relative mx-auto my-6 mb-32 mt-12 px-6">
+        <!-- Tabs Background -->
+        <div class="bg-tabs"></div>
+        <!-- Tabs Flex Container -->
+        <div
+          class="flex flex-col justify-center max-w-xl mx-auto mb-6 border-b md:flex-row md:space-x-10"
+        >
+          <!-- Tab 1 ('tab' custom class) -->
+          <div
+            data-target="tab-1"
+            class="tab flex justify-center text-center text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3"
+          >
+            <div class="py-5" data-target="panel-2">Simple Bookmarking</div>
+          </div>
+          <!-- Tab 2 ('tab' custom class) -->
+          <div
+            data-target="tab-1"
+            class="tab flex justify-center text-center text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3"
+          >
+            <div class="py-5" data-target="panel-3">Speedy Searching</div>
+          </div>
+          <!-- Tab 3 ('tab' custom class) -->
+          <div
+            data-target="tab-1"
+            class="tab flex justify-center text-center text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3"
+          >
+            <div class="py-5 border-b-4 border-softRed" data-target="panel-1">
+              Easy Sharing
+            </div>
+          </div>
+        </div>
+        <!-- Tab Panels Section -->
+        <section id="panels" class="container mx-auto">
+          <!-- Panel 1 -->
+          <div
+            class="panel panel-1 flex flex-col py-5 md:flex-row md:space-x-7"
+          >
+            <!-- Panel Images -->
+            <div class="flex justify-center md:w-1/2">
+              <img
+                src="images/illustration-features-tab-1.svg"
+                alt=""
+                class="relative z-10"
+              />
+            </div>
+            <!-- Panel Content -->
+            <div class="flex flex-col space-y-8 md:w-1/2">
+              <h3
+                class="mt-32 text-3xl font-semibold text-center md:mt-0 md:text-left"
+              >
+                Bookmark in one click.
+              </h3>
+              <p class="max-w-md text-center text-grayishBlue md:text-left">
+                Organize your bookmarks however you like. Our simple
+                drag-and-drop interface gives you complete control over how you
+                manage your favorite sites.
+              </p>
+              <div class="mx-auto md:mx-0">
+                <a
+                  href="#"
+                  class="px-6 py-3 mt-4 font-semibold text-white border-2 border-white rounded-lg md:inline-flex bg-softBlue hover:bg-white hover:text-softBlue hover:border-softBlue hover:border-2"
+                  >More Info</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Panel 2 -->
+          <div
+            class="panel panel-2 flex flex-col py-5 md:flex-row md:space-x-7"
+          >
+            <!-- Panel Images -->
+            <div class="flex justify-center md:w-1/2">
+              <img
+                src="images/illustration-features-tab-2.svg"
+                alt=""
+                class="relative z-10"
+              />
+            </div>
+            <!-- Panel Content -->
+            <div class="flex flex-col space-y-8 md:w-1/2">
+              <h3
+                class="mt-14 text-3xl font-semibold text-center md:mt-0 md:text-left"
+              >
+                Intelligent Search
+              </h3>
+              <p class="max-w-md text-center text-grayishBlue md:text-left">
+                Our powerful search feature will help you find saved sites in no
+                time at all. No need to trawl through all of your bookmarks.
+              </p>
+              <div class="mx-auto md:mx-0">
+                <a
+                  href="#"
+                  class="px-6 py-3 mt-4 font-semibold text-white border-2 border-white rounded-lg md:inline-flex bg-softBlue hover:bg-white hover:text-softBlue hover:border-softBlue hover:border-2"
+                  >More Info</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Panel 3 -->
+          <div
+            class="panel panel-3 flex flex-col py-5 md:flex-row md:space-x-7"
+          >
+            <!-- Panel Images -->
+            <div class="flex justify-center md:w-1/2">
+              <img
+                src="images/illustration-features-tab-3.svg"
+                alt=""
+                class="relative z-10"
+              />
+            </div>
+            <!-- Panel Content -->
+            <div class="flex flex-col space-y-8 md:w-1/2">
+              <h3
+                class="mt-32 text-3xl font-semibold text-center md:mt-0 md:text-left"
+              >
+                Share your Bookmarks
+              </h3>
+              <p class="max-w-md text-center text-grayishBlue md:text-left">
+                Easily share your bookmarks and collections with others. Create
+                a shareable a link that you can send at the click of a button.
+              </p>
+              <div class="mx-auto md:mx-0">
+                <a
+                  href="#"
+                  class="px-6 py-3 mt-4 font-semibold text-white border-2 border-white rounded-lg md:inline-flex bg-softBlue hover:bg-white hover:text-softBlue hover:border-softBlue hover:border-2"
+                  >More Info</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AÍ ADICIONAMOS HIDDEN AO PANEL 2 E 3...
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="./script.js" defer></script>
+  </head>
+  <!-- Fix scrollbar being created due to the image size -->
+  <body class="overflow-x-hidden">
+    <!-- Header -->
+    <nav class="container relative mx-auto p-6">
+      <!-- Flex Container for Nav Items -->
+      <div class="flex items-center justify-between space-x-20 my-6">
+        <!-- Logo -->
+        <div class="z-30">
+          <img src="images/logo-bookmark.svg" alt="" id="logo" />
+        </div>
+        <!-- Menu Items -->
+        <div
+          class="hidden items-center space-x-10 uppercase text-grayishBlue md:flex"
+        >
+          <a href="#features" class="tracking-widest hover:text-softRed"
+            >Features</a
+          >
+          <a href="#download" class="tracking-widest hover:text-softRed"
+            >Download</a
+          >
+          <a href="#faq" class="tracking-widest hover:text-softRed">FAQ</a>
+          <a
+            href="#"
+            class="px-8 py-2 text-white border-2 rounded-lg shadow-md bg-softRed border-softRed hover:text-softRed hover:bg-white"
+            >Login</a
+          >
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section id="hero">
+      <!-- Container For Image & Content -->
+      <div
+        class="container flex flex-col-reverse mx-auto p-6 lg:flex-row lg:mb-0"
+      >
+        <!-- Content -->
+        <div class="flex flex-col space-y-10 lg:mt-16 lg:w-1/2">
+          <h1
+            class="text-3xl font-semibold text-center lg:text-6xl lg:text-left"
+          >
+            A Simple Bookmark Manager
+          </h1>
+          <p
+            class="max-w-md mx-auto text-lg text-center text-gray-400 lg:text-2xl lg:text-left lg:mt-0 lg:mx-0"
+          >
+            A clean and simple interface to organize your favourite websites.
+            Open a new browser tab and see your sites load instantly. Try it for
+            free.
+          </p>
+
+          <!-- Buttons Container -->
+          <div
+            class="flex items-center justify-center w-full space-x-4 lg:justify-start"
+          >
+            <a
+              href="#"
+              class="p-4 text-sm font-semibold text-white bg-softBlue rounded shadow-md border-2 border-softBlue md:text-base hover:bg-white hover:text-softBlue"
+              >Get It On Chrome</a
+            >
+            <a
+              href="#"
+              class="p-4 text-sm font-semibold text-black bg-gray-300 rounded shadow-md border-2 border-gray-300 md:text-base hover:bg-white hover:text-gray-600"
+              >Get It On Firefox</a
+            >
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="relative mx-auto lg:mx-0 lg:mb-0 lg:w-1/2">
+          <div class="bg-hero"></div>
+          <img
+            src="images/illustration-hero.svg"
+            alt=""
+            class="relative z-10 lg:top-24 xl:top-0 oveflow-x-visible"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Heading Section-->
+    <section id="features">
+      <div class="container mx-auto mt-16 px-6">
+        <h2 class="mb-6 text-4xl font-semibold text-center">Features</h2>
+        <p class="max-w-md mx-auto text-center text-grayishBlue">
+          Our aim is to make it quick and easy for you to access your favorite
+          websites. Your bookmarks sync between your devices so you can access
+          them on the go.
+        </p>
+      </div>
+    </section>
+    <!-- Features Tabs Section -->
+    <section id="tabs">
+      <div class="container relative mx-auto my-6 mb-32 mt-12 px-6">
+        <!-- Tabs Background -->
+        <div class="bg-tabs"></div>
+        <!-- Tabs Flex Container -->
+        <div
+          class="flex flex-col justify-center max-w-xl mx-auto mb-6 border-b md:flex-row md:space-x-10"
+        >
+          <!-- Tab 1 ('tab' custom class) -->
+          <div
+            data-target="tab-1"
+            class="tab flex justify-center text-center text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3"
+          >
+            <div class="py-5" data-target="panel-2">Simple Bookmarking</div>
+          </div>
+          <!-- Tab 2 ('tab' custom class) -->
+          <div
+            data-target="tab-1"
+            class="tab flex justify-center text-center text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3"
+          >
+            <div class="py-5" data-target="panel-3">Speedy Searching</div>
+          </div>
+          <!-- Tab 3 ('tab' custom class) -->
+          <div
+            data-target="tab-1"
+            class="tab flex justify-center text-center text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3"
+          >
+            <div class="py-5 border-b-4 border-softRed" data-target="panel-1">
+              Easy Sharing
+            </div>
+          </div>
+        </div>
+        <!-- Tab Panels Section -->
+        <section id="panels" class="container mx-auto">
+          <!-- Panel 1 -->
+          <div
+            class="panel panel-1 flex flex-col py-5 md:flex-row md:space-x-7"
+          >
+            <!-- Panel Images -->
+            <div class="flex justify-center md:w-1/2">
+              <img
+                src="images/illustration-features-tab-1.svg"
+                alt=""
+                class="relative z-10"
+              />
+            </div>
+            <!-- Panel Content -->
+            <div class="flex flex-col space-y-8 md:w-1/2">
+              <h3
+                class="mt-32 text-3xl font-semibold text-center md:mt-0 md:text-left"
+              >
+                Bookmark in one click.
+              </h3>
+              <p class="max-w-md text-center text-grayishBlue md:text-left">
+                Organize your bookmarks however you like. Our simple
+                drag-and-drop interface gives you complete control over how you
+                manage your favorite sites.
+              </p>
+              <div class="mx-auto md:mx-0">
+                <a
+                  href="#"
+                  class="px-6 py-3 mt-4 font-semibold text-white border-2 border-white rounded-lg md:inline-flex bg-softBlue hover:bg-white hover:text-softBlue hover:border-softBlue hover:border-2"
+                  >More Info</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Panel 2 -->
+          <div
+            class="panel panel-2 flex flex-col hidden py-5 md:flex-row md:space-x-7"
+          >
+            <!-- Panel Images -->
+            <div class="flex justify-center md:w-1/2">
+              <img
+                src="images/illustration-features-tab-2.svg"
+                alt=""
+                class="relative z-10"
+              />
+            </div>
+            <!-- Panel Content -->
+            <div class="flex flex-col space-y-8 md:w-1/2">
+              <h3
+                class="mt-14 text-3xl font-semibold text-center md:mt-0 md:text-left"
+              >
+                Intelligent Search
+              </h3>
+              <p class="max-w-md text-center text-grayishBlue md:text-left">
+                Our powerful search feature will help you find saved sites in no
+                time at all. No need to trawl through all of your bookmarks.
+              </p>
+              <div class="mx-auto md:mx-0">
+                <a
+                  href="#"
+                  class="px-6 py-3 mt-4 font-semibold text-white border-2 border-white rounded-lg md:inline-flex bg-softBlue hover:bg-white hover:text-softBlue hover:border-softBlue hover:border-2"
+                  >More Info</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Panel 3 -->
+          <div
+            class="panel panel-3 flex flex-col hidden py-5 md:flex-row md:space-x-7"
+          >
+            <!-- Panel Images -->
+            <div class="flex justify-center md:w-1/2">
+              <img
+                src="images/illustration-features-tab-3.svg"
+                alt=""
+                class="relative z-10"
+              />
+            </div>
+            <!-- Panel Content -->
+            <div class="flex flex-col space-y-8 md:w-1/2">
+              <h3
+                class="mt-32 text-3xl font-semibold text-center md:mt-0 md:text-left"
+              >
+                Share your Bookmarks
+              </h3>
+              <p class="max-w-md text-center text-grayishBlue md:text-left">
+                Easily share your bookmarks and collections with others. Create
+                a shareable a link that you can send at the click of a button.
+              </p>
+              <div class="mx-auto md:mx-0">
+                <a
+                  href="#"
+                  class="px-6 py-3 mt-4 font-semibold text-white border-2 border-white rounded-lg md:inline-flex bg-softBlue hover:bg-white hover:text-softBlue hover:border-softBlue hover:border-2"
+                  >More Info</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FICAMOS COM SQUIGGLY LINES,
+
+MAS ISSO N SIGNIFICA NADA, PQ VAMOS USAR JAVASCRIPT PARA REMOVER ESSAS CLASSES DE 'hidden',
+sempre que 
+
+a tab apropriada for selecionada...
+
+
+
+
+
+
+
+
+
+
+VAMOS ESCREVER O JAVASCRIPT NA PRÓXIMA AULA...

@@ -1,0 +1,138 @@
+
+
+
+
+
+
+ESSE HEADER VAI APARECER SOMENTE EM MEDIUM SCREENS E UP...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--> VEREMOS O BURGER MENU MAIS TARDE, QUANDO ESCREVERMOS O JAVASCRIPT..
+
+
+
+
+
+
+
+
+
+
+
+
+
+--> VAMOS USAR FLEX, USAR JUSTIFY BETWEEN ENTRE O LOGO E OS ITEMS...
+
+
+
+
+
+
+
+
+
+
+
+
+COMEÇAMOS COM 1 CLASS DE 'overflow-x-hidden' no body...
+
+fazemos isso para que, no futuro, evitarmos a image de criar 1 scrollbar na parte 
+inferior da tela, quando a tela ficar menor...
+
+
+
+
+
+
+
+
+
+
+
+
+QUEREMOS QUE O LOGO SEMPRE FIQUE 'ON TOP' OF THE MOBILE MENU... por isso z-30 na logo image...
+
+
+
+
+
+
+
+
+
+EX:
+
+
+
+
+
+
+      <!-- Flex Container for Nav Items -->
+      <div class="flex items-center justify-between space-x-20 my-6">
+        <!-- Logo -->
+        <div class="z-30">
+          <img src="images/logo-bookmark.svg" alt="" id="logo" />
+        </div>
+        <!-- Menu Items -->
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+para os menu items, criamos outra div...
+
+
+
+
+
+
+
+
+
+
+
+
+
+EX:
+
+
+
+
+
+
+
+        <div
+          class="hidden items-center space-x-10 uppercase text-grayishBlue md:flex"
+        >
+          <a href="#features" class="tracking-widest hover:text-softRed">Features</a>
+          <a href="#download" class="tracking-widest hover:text-softRed">Download</a>
+          <a href="#faq" class="tracking-widest hover:text-softRed">FAQ</a>
+        </div>
+
+
+
+
+
+
+
+
+        E ENTÃO A A TAG FINAL, QUE TEM O STYLE DE UM BUTTON...

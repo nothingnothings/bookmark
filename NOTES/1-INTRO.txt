@@ -1,0 +1,143 @@
+
+
+
+
+
+
+
+
+
+
+ESTE É O ÚLTIMO PROJECT DO CURSO...
+
+
+
+
+
+
+
+HÁ CERTAS COISAS UNIQUE NESSE PROJECT..
+
+
+
+
+
+
+
+
+É PRATICAMENTE UMA LANDING PAGE PARA 
+
+
+1 
+
+APP DE BOOKMARKS...
+
+
+
+
+
+
+
+
+
+
+--> O PROFESSOR ACHA QUE O LOOK É BEM CLEAN...
+
+
+
+
+
+
+
+
+TEMOS 1 BURGER MENU, EM SMALLER SCREENS..
+
+
+
+
+
+
+
+--> OVERLAY EM SMALLER SCREENS...
+
+
+
+
+
+
+--> TEREMOS SMOOTH SCROLLING, TAMBÉM...
+
+
+
+
+
+
+IMAGES, ETC...
+
+
+
+
+
+
+
+
+
+
+
+
+
+--> TEMOS UMAS TABS MAIS PARA BAIXO,
+
+    E USAREMOS JAVASCRIPT PARA FAZÊ-LAS FUNCIONAR...
+
+
+
+
+
+
+
+
+
+--> MAIS PARA BAIXO, TEMOS 
+    3 BOXES, COM OFFSETS, PARA 
+
+
+    QUE AS BOXES FIQUEM EM 1 DIREÇÃO DIAGONAL..
+
+
+
+
+
+
+
+
+
+--> AO FINAL,
+    TEMOS 1 ELEMENTO DE FAQ,
+
+
+    
+    QUE NEM MESMO USA JAVASCRIPT... USA SÓ TAILWIND, COM GROUP-HOVER E GROUP-FOCUS...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FAREMOS ISSO, ENTÃO...
