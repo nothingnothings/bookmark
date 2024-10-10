@@ -1,6 +1,6 @@
 # bookmarkTraining
 
-[![en](https://img.shields.io/badge/lang-en-red.svg?style=flat-square)](https://github.com/bookmarkTraining/tailwindTraining)
+[![en](https://img.shields.io/badge/lang-en-red.svg?style=flat-square)](https://github.com/nothingnothings/bookmarkTraining)
 [![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg?style=flat-square)](https://github.com/nothingnothings/bookmarkTraining/blob/master/README.pt-br.md)
 
 Este README fornece uma visão geral do arquivo `index.html` para o projeto bookmarkTraining, focando nas classes Tailwind CSS e na funcionalidade usadas ao longo do documento. O arquivo é estruturado em várias seções principais, cada uma utilizando várias utilidades do Tailwind para criar um layout responsivo e visualmente atraente.
